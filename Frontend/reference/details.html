@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CameraCart - Sony Alpha a7 IV</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Noto+Sans:wght@300..700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#10b981", // Emerald 500
+                        "primary-hover": "#059669", // Emerald 600
+                        "bg-main": "#061814", // Very Dark Green
+                        "bg-card": "#0f2922", // Dark Green Surface
+                        "bg-card-hover": "#16382e", // Slightly Lighter
+                        "accent-text": "#6ee7b7", // Emerald 300
+                        "border-color": "#1f4a3d", // Emerald 900 border
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    boxShadow: {
+                        'glow': '0 4px 20px -2px rgba(16, 185, 129, 0.15)',
+                        'glow-hover': '0 8px 30px -4px rgba(16, 185, 129, 0.25)',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #061814;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1f4a3d;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-bg-main text-white font-display min-h-screen flex flex-col overflow-x-hidden selection:bg-primary selection:text-white">
+    <header class="sticky top-0 z-50 bg-bg-main/90 backdrop-blur-md border-b border-border-color">
+        <div class="px-4 md:px-10 py-3 max-w-[1440px] mx-auto w-full">
+            <div class="flex items-center justify-between gap-4">
+                <div class="flex items-center gap-2 text-white">
+                    <div class="size-8 text-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined text-3xl filled">camera</span>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight hidden sm:block">CameraCart</h2>
+                </div>
+                <div class="flex-1 max-w-xl px-4 hidden md:block">
+                    <label class="flex flex-col w-full h-10">
+                        <div
+                            class="flex w-full items-stretch rounded-full h-full bg-bg-card border border-border-color overflow-hidden group focus-within:ring-2 ring-primary/50 transition-all">
+                            <div class="text-gray-400 flex items-center justify-center pl-4 pr-2">
+                                <span class="material-symbols-outlined text-[20px]">search</span>
+                            </div>
+                            <input
+                                class="flex w-full bg-transparent border-none text-white placeholder:text-gray-500 text-sm focus:ring-0 px-0"
+                                placeholder="Search for cameras, lenses, accessories..." />
+                        </div>
+                    </label>
+                </div>
+                <div class="flex gap-3">
+                    <button
+                        class="flex items-center justify-center rounded-full size-10 bg-bg-card border border-border-color text-gray-200 hover:bg-primary hover:text-white hover:border-primary transition-all relative group">
+                        <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                        <span
+                            class="absolute top-0 right-0 size-2.5 bg-primary border-2 border-bg-main rounded-full group-hover:bg-white group-hover:border-primary transition-colors"></span>
+                    </button>
+                    <button
+                        class="flex items-center justify-center rounded-full size-10 bg-bg-card border border-border-color text-gray-200 hover:bg-primary hover:text-white hover:border-primary transition-all">
+                        <span class="material-symbols-outlined text-[20px]">person</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="flex-1 w-full max-w-[1280px] mx-auto px-4 md:px-8 py-8 flex flex-col gap-12">
+        <nav class="flex flex-wrap gap-2 items-center text-sm">
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#">Home</a>
+            <span class="text-gray-600">/</span>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#">Cameras</a>
+            <span class="text-gray-600">/</span>
+            <span class="text-accent-text font-medium">Sony Alpha a7 IV</span>
+        </nav>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+            <div class="lg:col-span-7 flex flex-col gap-6">
+                <div
+                    class="aspect-[4/3] w-full rounded-3xl overflow-hidden bg-bg-card border border-border-color relative group shadow-glow">
+                    <img alt="Sony Alpha camera front view with lens attached"
+                        class="w-full h-full object-contain p-10 group-hover:scale-105 transition-transform duration-700 ease-out"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSgS7vPsKazzrauVT-Iv0HbVMHDaFdZWQXe-bdb6UEMFsZz4TzWwvyyVIwPov9fdJ1Mc_7CVb0WFjBayq6UbpBEgwB6liYehfJkG6cn1T3veuD0pJI2AlLdXJt8ljS4m63CmB3GjGI1G0JM24gOgpG2qCb2KMjMv6jRxARrYGmM1AyimkkkIxSpG3dmTOwWNTo7_6ebSe2NMgWdRxznArWfS35xLARLbwom1z8sKqQ08Vzrt5wzhrH0UdEgsLIflscA9z79xOVByo" />
+                    <div class="absolute top-6 left-6 flex flex-col gap-2">
+                        <span
+                            class="bg-primary/90 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Premium
+                            Pick</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-4 gap-4">
+                    <button
+                        class="aspect-square rounded-xl border-2 border-primary bg-bg-card overflow-hidden p-2 transition-all shadow-lg shadow-primary/10">
+                        <img alt="Front view thumbnail" class="w-full h-full object-contain"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgR7G-LNK1hDb4GvHfn-yswDBoofZP_cknpjH-zfZFQSfgwAsmMoXRraNE1Q1JcRdvNnu3miI9BP4AuV8GawJT7AOYM-pkOMrWDK_TiZxaCpgqMyMbd7pHmcSzAj-io9Nu8Yq9VVzD9W6xURMz6s34lsK4Hy3W6hX5UVAQRZi96UaIOIon-ctSM_tHOekZf_m1jMvi5O5GL-Qxeu2rnyUFQNobVxacJVKQM28-j1UDGPxa4ObN3aht7Mk74axPXj_2Nc0EM0pWc4w" />
+                    </button>
+                    <button
+                        class="aspect-square rounded-xl border border-border-color bg-bg-card overflow-hidden p-2 hover:border-primary/50 hover:bg-bg-card-hover transition-all">
+                        <img alt="Top view showing dials" class="w-full h-full object-contain"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy6YsrBHiyluL5EfSXybGvVIjwvKsPP1Kjx48ux27faloWhNUCS70bv-8zq2l-1fht7GE3Y-843cOug8jcWIMl1xfcQy5-jsURynp_PF-4h0V42Obd-OkIhdmCouDDTksq3KRCIY2g0IVsa9_l_1N_ZorTbPP_bUfsLK-pxw7fpRTfjY3UYPupWFIsHZDUrLSV3qflns2Og_DpFwUvxfa7aj7njaWQk2pKC4gqAcon0AMG10vHAUde3NOzmNQb8jxX14DrXBVxuWM" />
+                    </button>
+                    <button
+                        class="aspect-square rounded-xl border border-border-color bg-bg-card overflow-hidden p-2 hover:border-primary/50 hover:bg-bg-card-hover transition-all">
+                        <img alt="Side profile" class="w-full h-full object-contain"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtgALQKz-SHtBMVBaRm18XphrzHQf3xKGk2EsVWTKeYZsnKcPsCnU-NqkB7jL5M93-PveMmopoYYci9j01xluOMr922DbDr5cSugMTfUpKJ9Q32Cofuh70dYOy9nJJmjQp2mYbwascLbYr4Y518HoTa6ONayaxKZfGgxWK5GpE9VW5PuzX0nIbjjSPs-VxvqaaT_rBJ3Xil9zRU2i9tvHog9m7F5FJ71DMzTcgfpJ5Z26aiaGZPOd87YCyHZF7mz0LGIpiurzn6d0" />
+                    </button>
+                    <button
+                        class="aspect-square rounded-xl border border-border-color bg-bg-card flex flex-col items-center justify-center text-primary font-bold hover:bg-bg-card-hover hover:border-primary/50 transition-all">
+                        <span class="material-symbols-outlined text-3xl mb-1">grid_view</span>
+                        <span class="text-xs">View All</span>
+                    </button>
+                </div>
+            </div>
+            <div class="lg:col-span-5 flex flex-col gap-6 lg:py-4">
+                <div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <span
+                            class="bg-white/10 text-white border border-white/10 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wide">Sony</span>
+                        <div class="flex items-center gap-1 text-yellow-400">
+                            <span class="material-symbols-outlined filled text-[16px]">star</span>
+                            <span class="text-sm font-medium text-white">4.9</span>
+                            <span class="text-xs text-gray-400 ml-1">(1,240 Reviews)</span>
+                        </div>
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-2 font-display">Sony Alpha a7
+                        IV Mirrorless Camera</h1>
+                </div>
+                <div class="flex flex-col gap-1 pb-6 border-b border-border-color">
+                    <div class="flex items-end gap-3">
+                        <h2 class="text-4xl font-bold text-primary tracking-tight">$2,498.00</h2>
+                        <span
+                            class="text-xl text-gray-500 line-through decoration-red-500/50 decoration-2 mb-1.5">$2,698.00</span>
+                        <span
+                            class="bg-red-500/10 text-red-400 text-xs font-bold px-2 py-1 rounded mb-2 border border-red-500/20">-7%
+                            OFF</span>
+                    </div>
+                    <p class="text-sm text-accent-text flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[16px] filled">bolt</span>
+                        In Stock - Ready to ship today
+                    </p>
+                </div>
+                <p class="text-gray-300 leading-relaxed text-lg font-light">
+                    The hybrid shooter's dream. With a 33MP full-frame sensor, 4K 60p recording, and real-time Eye AF
+                    for birds and animals, the a7 IV redefines the standard for modern photography.
+                </p>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-bg-card p-3 rounded-lg border border-border-color flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">sensor_window</span>
+                        <div class="text-sm">
+                            <span class="block text-gray-400 text-xs uppercase">Sensor</span>
+                            <span class="font-bold">33MP Full-Frame</span>
+                        </div>
+                    </div>
+                    <div class="bg-bg-card p-3 rounded-lg border border-border-color flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">videocam</span>
+                        <div class="text-sm">
+                            <span class="block text-gray-400 text-xs uppercase">Video</span>
+                            <span class="font-bold">4K 60p 10-Bit</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 mt-2">
+                    <button
+                        class="flex-1 bg-primary hover:bg-primary-hover text-white h-14 rounded-xl font-bold text-lg shadow-glow hover:shadow-glow-hover transition-all flex items-center justify-center gap-2 group">
+                        <span class="material-symbols-outlined group-hover:animate-bounce">shopping_bag</span>
+                        Add to Cart
+                    </button>
+                    <button
+                        class="flex-1 border-2 border-primary/30 text-primary hover:border-primary hover:bg-primary/5 h-14 rounded-xl font-bold text-lg transition-all">
+                        Buy Now
+                    </button>
+                </div>
+                <div class="grid grid-cols-3 gap-2 text-xs text-gray-400 mt-2 text-center">
+                    <div class="flex flex-col items-center gap-1">
+                        <span class="material-symbols-outlined text-primary text-[20px]">verified_user</span>
+                        <span>2-Year Warranty</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-1">
+                        <span class="material-symbols-outlined text-primary text-[20px]">local_shipping</span>
+                        <span>Free Shipping</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-1">
+                        <span class="material-symbols-outlined text-primary text-[20px]">change_circle</span>
+                        <span>30-Day Returns</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="mt-8">
+            <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                <span class="w-1 h-6 bg-primary rounded-full"></span>
+                Technical Highlights
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div
+                    class="bg-bg-card p-5 rounded-2xl border border-border-color flex flex-col gap-2 hover:border-primary/30 transition-colors">
+                    <span class="material-symbols-outlined text-primary text-3xl mb-1">sensor_window</span>
+                    <span class="text-gray-400 text-xs uppercase tracking-wider">Sensor Type</span>
+                    <span class="text-white font-bold text-lg">Exmor R CMOS</span>
+                </div>
+                <div
+                    class="bg-bg-card p-5 rounded-2xl border border-border-color flex flex-col gap-2 hover:border-primary/30 transition-colors">
+                    <span class="material-symbols-outlined text-primary text-3xl mb-1">lens</span>
+                    <span class="text-gray-400 text-xs uppercase tracking-wider">Megapixels</span>
+                    <span class="text-white font-bold text-lg">33.0 MP</span>
+                </div>
+                <div
+                    class="bg-bg-card p-5 rounded-2xl border border-border-color flex flex-col gap-2 hover:border-primary/30 transition-colors">
+                    <span class="material-symbols-outlined text-primary text-3xl mb-1">slow_motion_video</span>
+                    <span class="text-gray-400 text-xs uppercase tracking-wider">Video Support</span>
+                    <span class="text-white font-bold text-lg">4K 60p 4:2:2</span>
+                </div>
+                <div
+                    class="bg-bg-card p-5 rounded-2xl border border-border-color flex flex-col gap-2 hover:border-primary/30 transition-colors">
+                    <span class="material-symbols-outlined text-primary text-3xl mb-1">battery_charging_full</span>
+                    <span class="text-gray-400 text-xs uppercase tracking-wider">Battery Life</span>
+                    <span class="text-white font-bold text-lg">580 Shots</span>
+                </div>
+            </div>
+        </section>
+        <section class="mt-8">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+                    <span class="w-1 h-6 bg-primary rounded-full"></span>
+                    Top Photographers Using This Camera
+                </h3>
+                <a class="text-primary font-bold text-sm hover:text-white transition-colors" href="#">View Community
+                    Gallery -&gt;</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="group flex flex-col items-center text-center p-6 bg-bg-card rounded-2xl shadow-lg shadow-black/20 border border-border-color hover:border-primary/40 hover:shadow-glow transition-all duration-300">
+                    <div class="relative mb-4">
+                        <div
+                            class="absolute inset-0 bg-primary/20 rounded-full blur-md group-hover:bg-primary/40 transition-all">
+                        </div>
+                        <img alt="Portrait of photographer Annie L."
+                            class="relative size-20 rounded-full object-cover border-2 border-primary shadow-sm"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1kwx-vgHiF-4GTcFXJvk_cdXX0ujqGx5aknQztqc38W-TwCRzuIrebRFv4ejODpptUaLk0TSlCr_uXHavC-b6AlQMmv9u3uxZreTAnqlDeco-EjkbifHUXPHbrjdWDTP1ZZNkGwLlW8phHcoUWRagUOCb-JkYWaSX3fLJVmWsoTfPEoIqb-q5MO6FIfH_AIYCN8t617HPPA2nxrkIxZt31kLe2PBBDpBn3-u7f5hP7qdlRjsxfWNI679UHdm8JpOEjrQ9RSpRc7Y" />
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Annie Leibovitz</h4>
+                    <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full mt-1 mb-3">Wildlife
+                        Pro</span>
+                    <p class="text-sm italic text-gray-400 leading-relaxed">"The autofocus tracking on birds in flight
+                        is absolutely unmatched. A game changer."</p>
+                </div>
+                <div
+                    class="group flex flex-col items-center text-center p-6 bg-bg-card rounded-2xl shadow-lg shadow-black/20 border border-border-color hover:border-primary/40 hover:shadow-glow transition-all duration-300">
+                    <div class="relative mb-4">
+                        <div
+                            class="absolute inset-0 bg-primary/20 rounded-full blur-md group-hover:bg-primary/40 transition-all">
+                        </div>
+                        <img alt="Portrait of photographer Mark S."
+                            class="relative size-20 rounded-full object-cover border-2 border-primary shadow-sm"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_O_D1kxCW65s7J0Jl_ZFot45Ag8RzODCc9Xo_KJT3ypbBqaj0ztzJIuDGbziV-XvFeJLzbyjvNxSi8qWTMLAlRR7DjLGfC4Hc05IbK7S8L3S7556z4KamEU0CZHsnSwsnyV7AigR389BMLDgaCyoDM7PBMEW4vIWSF_z4UprFE0fea5-I0h4-Uk4rr1lAXtyXiLPWafzIbggd37kVKa6xgO0AXrZ2faNyqchQndyW0FWvqU6xIbcf5u090oJczD5Hblb3g_xPlUk" />
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Mark Seliger</h4>
+                    <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full mt-1 mb-3">Wedding
+                        Specialist</span>
+                    <p class="text-sm italic text-gray-400 leading-relaxed">"Perfect for low-light reception shots. The
+                        ISO performance is incredible."</p>
+                </div>
+                <div
+                    class="group flex flex-col items-center text-center p-6 bg-bg-card rounded-2xl shadow-lg shadow-black/20 border border-border-color hover:border-primary/40 hover:shadow-glow transition-all duration-300">
+                    <div class="relative mb-4">
+                        <div
+                            class="absolute inset-0 bg-primary/20 rounded-full blur-md group-hover:bg-primary/40 transition-all">
+                        </div>
+                        <img alt="Portrait of photographer Sarah K."
+                            class="relative size-20 rounded-full object-cover border-2 border-primary shadow-sm"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxWtMcMkwTON2bUccrofwGocRScf1RGX9dBjBkHzQiwkY6rvTE9UrPt3ba891Iw5mPZSHJ8-EYQeuouo0iGb_kZdIiBT3-azHQkMF__GzwDcgMP-fZbQRNil4hJ6BOo_TyYpH3TRej1SLzgdqj7JxbWXfpJk--S9_BrzufZopEyvfiWlz2NDPgnsTlZd-dBlrDKa75vUukF1QNIJb_kldtmmrR50zG6jhurnJiqAlmCVrR66p3s4GabDDFTuopUICVWGVrtvCeeIs" />
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Sarah K.</h4>
+                    <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full mt-1 mb-3">Street
+                        Photographer</span>
+                    <p class="text-sm italic text-gray-400 leading-relaxed">"The compact size and silent shutter make it
+                        ideal for candid city moments."</p>
+                </div>
+            </div>
+        </section>
+        <section class="mt-8 bg-bg-card border border-border-color rounded-3xl p-8 relative overflow-hidden">
+            <div class="absolute -top-20 -right-20 size-64 bg-primary/5 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-20 -left-20 size-64 bg-primary/5 rounded-full blur-3xl"></div>
+            <h3 class="text-2xl font-bold text-white mb-8 text-center relative z-10">Why Professionals Choose This
+                Camera</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+                <div class="flex flex-col items-center text-center gap-3 group">
+                    <div
+                        class="size-14 rounded-2xl bg-gradient-to-br from-bg-main to-bg-card border border-border-color text-primary group-hover:text-white group-hover:bg-primary transition-all duration-300 flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-3xl">night_sight_auto</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg">Low Light King</h4>
+                        <p class="text-sm text-gray-400 mt-1 leading-snug">Excellent performance up to ISO 51,200 with
+                            minimal noise.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center text-center gap-3 group">
+                    <div
+                        class="size-14 rounded-2xl bg-gradient-to-br from-bg-main to-bg-card border border-border-color text-primary group-hover:text-white group-hover:bg-primary transition-all duration-300 flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-3xl">center_focus_strong</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg">Real-time Eye AF</h4>
+                        <p class="text-sm text-gray-400 mt-1 leading-snug">Industry-leading tracking for humans,
+                            animals, and birds.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center text-center gap-3 group">
+                    <div
+                        class="size-14 rounded-2xl bg-gradient-to-br from-bg-main to-bg-card border border-border-color text-primary group-hover:text-white group-hover:bg-primary transition-all duration-300 flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-3xl">hdr_on</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg">High Dynamic Range</h4>
+                        <p class="text-sm text-gray-400 mt-1 leading-snug">15+ stops of dynamic range for incredible
+                            detail.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center text-center gap-3 group">
+                    <div
+                        class="size-14 rounded-2xl bg-gradient-to-br from-bg-main to-bg-card border border-border-color text-primary group-hover:text-white group-hover:bg-primary transition-all duration-300 flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-3xl">fitness_center</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg">Durable &amp; Light</h4>
+                        <p class="text-sm text-gray-400 mt-1 leading-snug">Magnesium alloy body that is weather-sealed
+                            and lightweight.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="mt-12 border-t border-border-color bg-bg-card py-10">
+        <div class="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 text-white">
+                <div class="size-8 text-primary flex items-center justify-center">
+                    <span class="material-symbols-outlined text-3xl filled">camera</span>
+                </div>
+                <span class="text-xl font-bold tracking-tight">CameraCart</span>
+            </div>
+            <div class="flex gap-8 text-sm font-medium text-gray-400">
+                <a class="hover:text-primary transition-colors" href="#">Shop</a>
+                <a class="hover:text-primary transition-colors" href="#">About</a>
+                <a class="hover:text-primary transition-colors" href="#">Support</a>
+                <a class="hover:text-primary transition-colors" href="#">Privacy</a>
+            </div>
+            <div class="text-sm text-gray-600">
+                © 2007 Developer Platform . All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

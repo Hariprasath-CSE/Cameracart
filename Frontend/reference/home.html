@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CameraCart - Premium Photography Gear</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#38e07b",
+                        "primary-dark": "#2ec268",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#122017",
+                        "surface-dark": "#1a2c22",
+                        "surface-light": "#ffffff",
+                        "text-secondary": "#9eb7a8",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Spline Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "2xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary selection:text-background-dark min-h-screen flex flex-col">
+    <nav
+        class="sticky top-0 z-50 w-full bg-surface-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-[#29382f]">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-8">
+                <div class="flex items-center gap-3 shrink-0">
+                    <div class="size-8 text-primary">
+                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight dark:text-white text-slate-900">CameraCart</span>
+                </div>
+                <div class="hidden md:flex flex-1 max-w-2xl">
+                    <div class="relative w-full group">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <span class="material-symbols-outlined text-gray-400 dark:text-[#9eb7a8]">search</span>
+                        </div>
+                        <input
+                            class="block w-full pl-12 pr-4 py-3 rounded-full border-none bg-gray-100 dark:bg-[#29382f] text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-[#9eb7a8] focus:ring-2 focus:ring-primary transition-all shadow-inner"
+                            placeholder="Search cameras, lenses, accessories..." type="text" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 sm:gap-6 shrink-0">
+                    <button
+                        class="relative p-2 text-gray-500 dark:text-[#9eb7a8] hover:text-primary dark:hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span
+                            class="absolute top-1 right-0 size-2.5 bg-primary rounded-full ring-2 ring-white dark:ring-background-dark"></span>
+                    </button>
+                    <button
+                        class="p-2 text-gray-500 dark:text-[#9eb7a8] hover:text-primary dark:hover:text-primary transition-colors hidden sm:block">
+                        <span class="material-symbols-outlined">package_2</span>
+                    </button>
+                    <div class="h-8 w-px bg-gray-200 dark:bg-[#29382f] hidden sm:block"></div>
+                    <div class="flex items-center gap-3 pl-2">
+                        <div class="flex flex-col items-end hidden lg:block">
+                            <span class="text-sm font-semibold dark:text-white leading-tight">Alex Doe</span>
+                            <span class="text-xs text-gray-500 dark:text-[#9eb7a8]">Pro Member</span>
+                        </div>
+                        <div class="size-10 rounded-full bg-cover bg-center border-2 border-transparent hover:border-primary cursor-pointer transition-all"
+                            data-alt="User profile picture of a photographer"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBqM51sA31hx9K_rF04lexDWgzLrlfWXWbkLB_ZOtVcslWJX1FNW6HWm0MFR8NTK_xwHtO_PqTnUpd3PEHctqsgMefbUTDl5VZ3kVzJ7m7WlD8cNod1f9ZOCIunYnCn5Zldef9i6STg8qsOqvL9CvcYents7WWWseMm004JnNfF6T94jcCZqoHDWRJnFiiHrVFR-Zc0-iAKvMYFhjiU_MIyfE5Zy2KoKtccx-odT4iXnBbl_TIia3p_4D1fHyqv0dlFsNdNuG7sq2xc');">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:hidden pb-4">
+                <div class="relative w-full">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <span class="material-symbols-outlined text-gray-400 dark:text-[#9eb7a8]">search</span>
+                    </div>
+                    <input
+                        class="block w-full pl-12 pr-4 py-3 rounded-full border-none bg-gray-100 dark:bg-[#29382f] text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-[#9eb7a8] focus:ring-2 focus:ring-primary"
+                        placeholder="Search..." type="text" />
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="flex-grow w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
+            <h1 class="text-3xl font-bold dark:text-white text-slate-900 hidden sm:block">Explore Gear</h1>
+            <div class="w-full sm:w-auto overflow-x-auto hide-scrollbar">
+                <div class="flex gap-3 pb-2 sm:pb-0">
+                    <button
+                        class="flex h-10 shrink-0 items-center justify-center px-6 rounded-full bg-primary text-background-dark font-bold shadow-lg shadow-primary/20 transition-transform hover:scale-105">
+                        All
+                    </button>
+                    <button
+                        class="flex h-10 shrink-0 items-center justify-center px-6 rounded-full bg-gray-200 dark:bg-[#29382f] text-gray-700 dark:text-white font-medium hover:bg-gray-300 dark:hover:bg-[#384b3f] transition-colors">
+                        Mirrorless
+                    </button>
+                    <button
+                        class="flex h-10 shrink-0 items-center justify-center px-6 rounded-full bg-gray-200 dark:bg-[#29382f] text-gray-700 dark:text-white font-medium hover:bg-gray-300 dark:hover:bg-[#384b3f] transition-colors">
+                        DSLR
+                    </button>
+                    <button
+                        class="flex h-10 shrink-0 items-center justify-center px-6 rounded-full bg-gray-200 dark:bg-[#29382f] text-gray-700 dark:text-white font-medium hover:bg-gray-300 dark:hover:bg-[#384b3f] transition-colors">
+                        Details
+                    </button>
+                    <button
+                        class="flex h-10 shrink-0 items-center justify-center px-6 rounded-full bg-gray-200 dark:bg-[#29382f] text-gray-700 dark:text-white font-medium hover:bg-gray-300 dark:hover:bg-[#384b3f] transition-colors">
+                        Accessories
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div
+                class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1">
+                <div class="relative w-full aspect-square overflow-hidden bg-gray-100 dark:bg-[#15231b]">
+                    <div
+                        class="absolute top-3 left-3 z-10 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-semibold text-white uppercase tracking-wider">
+                        Sony</div>
+                    <div
+                        class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button
+                            class="p-2 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                    </div>
+                    <div class="w-full h-full bg-center bg-contain bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Sony Alpha a7 IV mirrorless camera body"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCeVZMZrW3RGwx6dE0j-pxVa0AVJK-3p31DU_3LP-Q-YigeS-NB_8zFiV5_623pxjO7bdHXFVVbqZbmSjkj0PWLJ8qHYGT_Ga4PuV0_AKmgyvbYEPgiu3a1S7jIPafa3kiJQroPK61asM_dJEJq--nNPRtnp6NH_MJYXSAqzvo9Vilux5GeuWpUnhRo_BdBECof9cVrp2-s2cGdPf2He2D465Pm7Y0FDHw8B0vzoqhDrzfgw9oiRk5b_ZvbFAyYZeuhuvYvjgcQdqK1');">
+                    </div>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold dark:text-white text-slate-900 leading-tight">Sony Alpha a7 IV</h3>
+                        <div class="flex items-center gap-1 text-amber-400">
+                            <span class="material-symbols-outlined text-[16px] fill">star</span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">4.8</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-text-secondary mb-4 line-clamp-2">33MP Full-Frame Exmor R CMOS Sensor, BIONZ
+                        XR Image Processor.</p>
+                    <div class="mt-auto flex items-end justify-between">
+                        <div>
+                            <p class="text-xs text-text-secondary line-through">$2,698.00</p>
+                            <p class="text-xl font-bold text-primary">$2,498.00</p>
+                        </div>
+                        <button
+                            class="p-3 bg-primary text-background-dark rounded-full font-bold hover:bg-primary-dark transition-colors shadow-lg shadow-primary/25">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1">
+                <div class="relative w-full aspect-square overflow-hidden bg-gray-100 dark:bg-[#15231b]">
+                    <div
+                        class="absolute top-3 left-3 z-10 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-semibold text-white uppercase tracking-wider">
+                        Canon</div>
+                    <div
+                        class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button
+                            class="p-2 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                    </div>
+                    <div class="w-full h-full bg-center bg-contain bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Canon EOS R5 mirrorless camera front view"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBp2-WUvt30c4CC37dVN4ZMl21b2RvI1Bix_iziBZBDuoLKtipasgo9x1wnrvmVXMBPh6Rklsl2CAhuRSgPEmBg0g7s11D557e1hTpznx0hqIGawymxg1YnWETP-XYXoiyQ1HOQPKDxzH83ZunMroAxuB9DCXfCeZYi4ORNpwCLZ3rqMewt066ZQv3pryTBZIeiETD_ciNHLjWJaoJXAiBPN2BitYcnqgifPVmqw60imIAxtnBWK4wNa1iDmMQCPgP8tP5K6V2p3lPh');">
+                    </div>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold dark:text-white text-slate-900 leading-tight">Canon EOS R5</h3>
+                        <div class="flex items-center gap-1 text-amber-400">
+                            <span class="material-symbols-outlined text-[16px] fill">star</span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">4.9</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-text-secondary mb-4 line-clamp-2">45MP Full-Frame CMOS Sensor, 8K30 Raw and
+                        4K120 10-Bit Internal Video.</p>
+                    <div class="mt-auto flex items-end justify-between">
+                        <div>
+                            <p class="text-xl font-bold dark:text-white text-slate-900">$3,899.00</p>
+                        </div>
+                        <button
+                            class="p-3 bg-gray-100 dark:bg-[#29382f] dark:text-white text-slate-900 rounded-full font-bold hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1">
+                <div class="relative w-full aspect-square overflow-hidden bg-gray-100 dark:bg-[#15231b]">
+                    <div
+                        class="absolute top-3 left-3 z-10 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-semibold text-white uppercase tracking-wider">
+                        Nikon</div>
+                    <div
+                        class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button
+                            class="p-2 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                    </div>
+                    <div class="w-full h-full bg-center bg-contain bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Nikon Z6 II camera with lens attached"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPhQ8DtQlCd68UE7ZYvpEouN7ZLU5U_j8749BzXNJ-xQpxg2FbiDoJrMiWWPbIweNpjL5cE1eYglyYTWEofq4jqljW5Yl-DQqXkl1mNHdEciowGb2SRas0IfSdfApmrB2OVAZprPlVirZ-1MYGNEMUNJ2opfaZZ7HAJQ4tLE8GYISDJyunorEyUVHa_TnvC2q5o3QEVDIFMLfOGzsDm3LbGTlpuSNQkz3Gz19sBZCWcKy0euYB889zzpAEreLCuTnNv3psRaZf_yIQ');">
+                    </div>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold dark:text-white text-slate-900 leading-tight">Nikon Z6 II</h3>
+                        <div class="flex items-center gap-1 text-amber-400">
+                            <span class="material-symbols-outlined text-[16px] fill">star</span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">4.7</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-text-secondary mb-4 line-clamp-2">24.5MP FX-Format BSI CMOS Sensor, Dual
+                        EXPEED 6 Image Processors.</p>
+                    <div class="mt-auto flex items-end justify-between">
+                        <div>
+                            <p class="text-xl font-bold dark:text-white text-slate-900">$1,996.95</p>
+                        </div>
+                        <button
+                            class="p-3 bg-gray-100 dark:bg-[#29382f] dark:text-white text-slate-900 rounded-full font-bold hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1">
+                <div class="relative w-full aspect-square overflow-hidden bg-gray-100 dark:bg-[#15231b]">
+                    <div
+                        class="absolute top-3 left-3 z-10 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-semibold text-white uppercase tracking-wider">
+                        Fujifilm</div>
+                    <div
+                        class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button
+                            class="p-2 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                    </div>
+                    <div class="w-full h-full bg-center bg-contain bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Fujifilm X-T4 retro style silver camera"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD9TC2FIzfnCGtEuKNw9GdovVy1plcJxsqTVUUYaj0pjwfMAyM0cz9UYz4ryJ6XJZZCxwsrsqAHxntglJxGPmm4Z2l1UwbNCY6hlso6vB6A2Sfs2gIpUiqCRVHrcdjB6qif95IDgi0vpdlZCrT5oaK1Og7muPqpB76ro4t8Tjsq3WBEfQR4W4OMH3yzlPueSn31juV_G9XOS7GBKMOnHZJGFWZ-vacpv-vWb4LzEufygI3UBaKzwghQLuwXoooQnbp_BTTvNsnCweGC');">
+                    </div>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold dark:text-white text-slate-900 leading-tight">Fujifilm X-T4</h3>
+                        <div class="flex items-center gap-1 text-amber-400">
+                            <span class="material-symbols-outlined text-[16px] fill">star</span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">4.8</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-text-secondary mb-4 line-clamp-2">26.1MP APS-C X-Trans BSI CMOS 4 Sensor,
+                        X-Processor 4 Image Processor.</p>
+                    <div class="mt-auto flex items-end justify-between">
+                        <div>
+                            <p class="text-xl font-bold dark:text-white text-slate-900">$1,699.00</p>
+                        </div>
+                        <button
+                            class="p-3 bg-gray-100 dark:bg-[#29382f] dark:text-white text-slate-900 rounded-full font-bold hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1">
+                <div class="relative w-full aspect-square overflow-hidden bg-gray-100 dark:bg-[#15231b]">
+                    <div
+                        class="absolute top-3 left-3 z-10 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-semibold text-white uppercase tracking-wider">
+                        Sigma</div>
+                    <div
+                        class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button
+                            class="p-2 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                    </div>
+                    <div class="w-full h-full bg-center bg-contain bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Sigma 24-70mm lens closeup"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDkByBoeu9RMlxB9PpDOvyC8nLtUOddCFPdJP36ikLPdEf3wrpyOnni_mDfWL1EydmUHzebmOh4bOWDeltF89nfUv79XWczxls1edCFYMXZsrzaQNk9GmIoD2JgnMnY3cUFRfiqI0gJaoASgzcaFVqbnsVyLFqFI7f7h6zddu1IOWtLCFgR9B3EaEhSlU-nxEbn44OEF1qd3z8y1jEqGPcHKeEYQ04bVqWsXi8pj_Kg-y4u1CM_YotHtvAi-PjF6vSfx84gL2XFOQz3');">
+                    </div>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold dark:text-white text-slate-900 leading-tight">Sigma 24-70mm</h3>
+                        <div class="flex items-center gap-1 text-amber-400">
+                            <span class="material-symbols-outlined text-[16px] fill">star</span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">4.6</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-text-secondary mb-4 line-clamp-2">f/2.8 DG DN Art Lens for Sony E. Versatile
+                        wide-angle to portrait.</p>
+                    <div class="mt-auto flex items-end justify-between">
+                        <div>
+                            <p class="text-xl font-bold dark:text-white text-slate-900">$1,099.00</p>
+                        </div>
+                        <button
+                            class="p-3 bg-gray-100 dark:bg-[#29382f] dark:text-white text-slate-900 rounded-full font-bold hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1">
+                <div class="relative w-full aspect-square overflow-hidden bg-gray-100 dark:bg-[#15231b]">
+                    <div
+                        class="absolute top-3 left-3 z-10 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-semibold text-white uppercase tracking-wider">
+                        Canon</div>
+                    <div
+                        class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button
+                            class="p-2 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                    </div>
+                    <div class="w-full h-full bg-center bg-contain bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Canon RF 50mm f/1.2 lens front element"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMwn19W0llEMf0DAGOmzwYnCBmcOC4MonM6MmcrGNmMQ_ZFnf5W7Sf-zSNQIDQn1vE5eu6ZcWDjqS_uVl7nROsbeYospUdQGh74_NDmrI2P6O1VOXMBuLb0pDS1z3uN62Y4OtuAdWQPgDyDUl40igQ6SBfstvJb1o2qBvB_qRTL8x3HtA0b970X--ncRmdsrQVyYT_Jj1MUdAfAWLwC4W2BX7GW-4ddWYdqziXzmRzKgyvAl6ofZ35GTUqChic2pZEWCjdBa2x9m_Q');">
+                    </div>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold dark:text-white text-slate-900 leading-tight">Canon RF 50mm f/1.2
+                        </h3>
+                        <div class="flex items-center gap-1 text-amber-400">
+                            <span class="material-symbols-outlined text-[16px] fill">star</span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">5.0</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-text-secondary mb-4 line-clamp-2">L USM Lens. A bright, professional prime
+                        lens delivering supreme sharpness.</p>
+                    <div class="mt-auto flex items-end justify-between">
+                        <div>
+                            <p class="text-xl font-bold dark:text-white text-slate-900">$2,299.00</p>
+                        </div>
+                        <button
+                            class="p-3 bg-gray-100 dark:bg-[#29382f] dark:text-white text-slate-900 rounded-full font-bold hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1">
+                <div class="relative w-full aspect-square overflow-hidden bg-gray-100 dark:bg-[#15231b]">
+                    <div
+                        class="absolute top-3 left-3 z-10 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-semibold text-white uppercase tracking-wider">
+                        Sony</div>
+                    <div
+                        class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button
+                            class="p-2 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                    </div>
+                    <div class="w-full h-full bg-center bg-contain bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Sony FE 85mm f/1.4 lens profile"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3MN5gE6FAd58kPNcV6v7B-ehE3yDH6J6_rAbqY0eSsw68ETM9Vb0qEr6zgdduaLBRjvCjTfWDNOuaKa97oT6GU544Z6mzm29qGjyzpk0Z1bHxWNp9A7skhvLuyU9K2g1aiKMM50tS1xNS6Nar94bJMfg4ITgIm9sWix9sXFMBKfM0ez4YpkbYQJ5tBUKHMlwcMuDRDa3ZEsnqNKcUuarlVPUHrbmMG_UF9apoWvY1nMX_QbbFc3qiRoRLQpYjNS60gSLmmDqdYfYU');">
+                    </div>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold dark:text-white text-slate-900 leading-tight">Sony FE 85mm f/1.4
+                        </h3>
+                        <div class="flex items-center gap-1 text-amber-400">
+                            <span class="material-symbols-outlined text-[16px] fill">star</span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">4.8</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-text-secondary mb-4 line-clamp-2">GM Lens. The ultimate portrait lens with
+                        stunning bokeh and resolution.</p>
+                    <div class="mt-auto flex items-end justify-between">
+                        <div>
+                            <p class="text-xl font-bold dark:text-white text-slate-900">$1,798.00</p>
+                        </div>
+                        <button
+                            class="p-3 bg-gray-100 dark:bg-[#29382f] dark:text-white text-slate-900 rounded-full font-bold hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1">
+                <div class="relative w-full aspect-square overflow-hidden bg-gray-100 dark:bg-[#15231b]">
+                    <div
+                        class="absolute top-3 left-3 z-10 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-semibold text-white uppercase tracking-wider">
+                        DJI</div>
+                    <div
+                        class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button
+                            class="p-2 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                    </div>
+                    <div class="w-full h-full bg-center bg-contain bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+                        data-alt="DJI Mavic 3 drone hovering"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCaRpblEBnQEFRlgVcZ1VVrKJQ3OiKx-dnru_cJ-2_nExcTvVQr-9iuHwHtID1i-eAjrDjBednUN7EbcEfFPFATu51K8lQ5EyDxCIOwq-WKqQ8-VcV9Oxmj6LxxnsZCpnfoayIxTLIzNdkkT77uqXMKMK62-4bBO3tVlDsyjaJ5PrwTMRUQ0ugUKG_RJMhoVuoIlLvSwWQg3cRFL5uT7gH0CZjw7Y42LUvmnDX1mNgvbeDxsrLszs56yCCWXQ4DmT6lMZK6kjjOyI4X');">
+                    </div>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold dark:text-white text-slate-900 leading-tight">DJI Mavic 3</h3>
+                        <div class="flex items-center gap-1 text-amber-400">
+                            <span class="material-symbols-outlined text-[16px] fill">star</span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">4.7</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-text-secondary mb-4 line-clamp-2">Fly More Combo. 4/3 CMOS Hasselblad Camera,
+                        46 Minutes Flight Time.</p>
+                    <div class="mt-auto flex items-end justify-between">
+                        <div>
+                            <p class="text-xl font-bold dark:text-white text-slate-900">$2,199.00</p>
+                        </div>
+                        <button
+                            class="p-3 bg-gray-100 dark:bg-[#29382f] dark:text-white text-slate-900 rounded-full font-bold hover:bg-primary hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center mt-12 mb-8">
+            <button
+                class="px-8 py-3 rounded-full border border-gray-300 dark:border-[#29382f] text-gray-700 dark:text-white font-semibold hover:bg-gray-100 dark:hover:bg-[#29382f] hover:border-transparent transition-all flex items-center gap-2">
+                <span>Load More Products</span>
+                <span class="material-symbols-outlined text-sm">expand_more</span>
+            </button>
+        </div>
+    </main>
+    <footer
+        class="w-full border-t border-gray-200 dark:border-[#29382f] py-8 bg-surface-light dark:bg-background-dark mt-auto">
+        <div class="max-w-[1440px] mx-auto px-6 text-center text-sm text-gray-500 dark:text-[#9eb7a8]">
+            <p>© 2024 CameraCart. All rights reserved. Designed for Creators.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

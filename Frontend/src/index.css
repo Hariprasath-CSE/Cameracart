@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #38e07b;
+  --color-primary-dark: #2ec268;
+  --color-background-light: #f6f8f7;
+  --color-background-dark: #122017;
+  --color-surface-dark: #1a2c22;
+  --color-surface-light: #ffffff;
+  --color-text-secondary: #9eb7a8;
+
+  --font-display: "Spline Sans", sans-serif;
+  --font-body: "Spline Sans", sans-serif;
+
+  --radius-default: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-2xl: 3rem;
+  --radius-full: 9999px;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom scrollbar for webkit to blend in */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #142210;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2c4823;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #46ec13;
+}
+
+/* Glassmorphism panel */
+.glass-panel {
+  background: rgba(20, 34, 16, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Base styles */
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  body {
+    @apply font-display antialiased bg-background-light dark:bg-background-dark text-white;
+  }
+}
+
+#root {
+  @apply w-full min-h-screen;
+}
