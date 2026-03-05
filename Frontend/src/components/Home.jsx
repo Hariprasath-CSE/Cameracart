@@ -11,13 +11,6 @@ const Home = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
-    const [favourites, setFavourites] = useState(() => {
-        try {
-            const stored = localStorage.getItem('favourites');
-            return new Set(stored ? JSON.parse(stored) : []);
-        } catch { return new Set(); }
-    });
-    const [showFavourites, setShowFavourites] = useState(false);
 
     useEffect(() => {
         const userData = localStorage.getItem('user');
@@ -60,27 +53,6 @@ const Home = () => {
             }
         });
         navigate('/login');
-    };
-
-    const toggleFavourite = (product) => {
-        setFavourites((prev) => {
-            const updated = new Set(prev);
-            if (updated.has(product._id)) {
-                updated.delete(product._id);
-                toast('Removed from favourites', {
-                    icon: '🤍',
-                    style: { background: '#122017', color: '#9eb7a8', border: '1px solid #1a2c22' }
-                });
-            } else {
-                updated.add(product._id);
-                toast.success(`❤️ Added to favourites!`, {
-                    style: { background: '#122017', color: '#38e07b', border: '1px solid #1a2c22' },
-                    duration: 1500
-                });
-            }
-            localStorage.setItem('favourites', JSON.stringify([...updated]));
-            return updated;
-        });
     };
 
     const addToCart = async (productId) => {
@@ -175,7 +147,7 @@ const Home = () => {
                                     <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
                                 </svg>
                             </div>
-                            <span className="text-xl font-bold tracking-tight dark:text-white text-slate-900">HPX Cam</span>
+                            <span className="text-xl font-bold tracking-tight dark:text-white text-slate-900">CameraCart</span>
                         </div>
                         {/* Search Bar (Center) */}
                         <div className="hidden md:flex flex-1 max-w-2xl">
@@ -194,19 +166,6 @@ const Home = () => {
                         </div>
                         {/* Right Actions */}
                         <div className="flex items-center gap-4 sm:gap-6 shrink-0">
-                            {/* Favourites Button */}
-                            <button
-                                onClick={() => setShowFavourites((v) => !v)}
-                                className="relative p-2 text-gray-500 dark:text-[#9eb7a8] hover:text-red-500 dark:hover:text-red-400 transition-colors"
-                                title="My Favourites"
-                            >
-                                <span className={`material-symbols-outlined ${favourites.size > 0 ? 'text-red-500' : ''}`}>favorite</span>
-                                {favourites.size > 0 && (
-                                    <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center px-1">
-                                        {favourites.size}
-                                    </span>
-                                )}
-                            </button>
                             <button
                                 onClick={() => navigate('/cart')}
                                 className="relative p-2 text-gray-500 dark:text-[#9eb7a8] hover:text-primary dark:hover:text-primary transition-colors"
@@ -295,64 +254,6 @@ const Home = () => {
                 </div>
             </nav>
 
-            {/* Favourites Panel */}
-            {showFavourites && (
-                <div className="w-full bg-surface-light dark:bg-[#1a2c22] border-b border-gray-200 dark:border-[#29382f] shadow-2xl animate-fade-in z-40">
-                    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                        <div className="flex items-center justify-between mb-4">
-                            <h2 className="text-xl font-bold dark:text-white flex items-center gap-2">
-                                <span className="material-symbols-outlined text-red-500">favorite</span>
-                                My Favourites
-                                <span className="text-sm font-normal text-text-secondary">({favourites.size} items)</span>
-                            </h2>
-                            <button
-                                onClick={() => setShowFavourites(false)}
-                                className="p-1.5 rounded-full hover:bg-gray-200 dark:hover:bg-[#29382f] transition-colors"
-                            >
-                                <span className="material-symbols-outlined text-[20px]">close</span>
-                            </button>
-                        </div>
-                        {favourites.size === 0 ? (
-                            <div className="text-center py-8">
-                                <span className="material-symbols-outlined text-5xl text-gray-300 dark:text-[#29382f] block mb-2">favorite_border</span>
-                                <p className="text-text-secondary">No favourites yet. Click the ❤️ on any product!</p>
-                            </div>
-                        ) : (
-                            <div className="flex gap-4 overflow-x-auto pb-2 hide-scrollbar">
-                                {products.filter((p) => favourites.has(p._id)).map((product) => (
-                                    <div key={product._id} className="flex-shrink-0 w-52 bg-gray-100 dark:bg-[#15231b] rounded-xl overflow-hidden group">
-                                        <div
-                                            className="w-full h-32 bg-center bg-contain bg-no-repeat cursor-pointer"
-                                            style={{ backgroundImage: `url(${product.image})` }}
-                                            onClick={() => { setShowFavourites(false); navigate(`/product/${product._id}`); }}
-                                        />
-                                        <div className="p-3">
-                                            <p className="text-sm font-bold dark:text-white text-slate-900 truncate mb-1">{product.name}</p>
-                                            <p className="text-primary font-bold text-sm mb-3">${product.price.toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
-                                            <div className="flex gap-2">
-                                                <button
-                                                    onClick={() => { addToCart(product._id); }}
-                                                    className="flex-1 py-1.5 bg-primary text-background-dark rounded-full text-xs font-bold hover:bg-primary-dark transition-colors"
-                                                >
-                                                    Add to Cart
-                                                </button>
-                                                <button
-                                                    onClick={() => toggleFavourite(product)}
-                                                    className="p-1.5 bg-red-500/10 text-red-500 rounded-full hover:bg-red-500/20 transition-colors"
-                                                    title="Remove from favourites"
-                                                >
-                                                    <span className="material-symbols-outlined text-[16px]">close</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                </div>
-            )}
-
             {/* Main Content */}
             <main className="flex-grow w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Filter Section */}
@@ -393,16 +294,8 @@ const Home = () => {
                                         {product.brand}
                                     </div>
                                     <div className="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <button
-                                            onClick={(e) => { e.stopPropagation(); toggleFavourite(product); }}
-                                            className={`p-2 backdrop-blur-md rounded-full transition-all duration-200 hover:scale-110 ${favourites.has(product._id)
-                                                ? 'bg-red-500/20 text-red-500'
-                                                : 'bg-white/10 text-white hover:bg-red-500/20 hover:text-red-400'
-                                                }`}
-                                            title={favourites.has(product._id) ? 'Remove from favourites' : 'Add to favourites'}
-                                        >
-                                            <span className={`material-symbols-outlined text-[20px] ${favourites.has(product._id) ? 'fill' : ''
-                                                }`}>favorite</span>
+                                        <button className="p-2 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-primary hover:text-background-dark transition-colors">
+                                            <span className="material-symbols-outlined text-[20px]">favorite</span>
                                         </button>
                                     </div>
                                     <div

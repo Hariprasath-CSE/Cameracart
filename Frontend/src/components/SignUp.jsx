@@ -66,7 +66,7 @@ const SignUp = () => {
                     <div className="size-10 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20 text-primary shadow-[0_0_15px_rgba(70,236,19,0.3)]">
                         <span className="material-symbols-outlined text-[24px]">camera</span>
                     </div>
-                    <h2 className="text-white text-2xl font-bold tracking-tight">HPX Cam</h2>
+                    <h2 className="text-white text-2xl font-bold tracking-tight">CameraCart</h2>
                 </div>
 
                 {/* Header Section */}
@@ -222,7 +222,7 @@ const SignUp = () => {
 
             {/* Simple Footer Info */}
             <div className="relative z-10 mt-8 text-[#9fc992]/60 text-xs font-medium tracking-wide text-black font-bold">
-                © HP HPX Cam Photography Profession. Professional Gear Market.
+                © HP CameraCart Photography Profession. Professional Gear Market.
             </div>
         </div>
     );

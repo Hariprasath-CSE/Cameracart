@@ -96,7 +96,7 @@ const Checkout = () => {
                                     <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
                                 </svg>
                             </div>
-                            <span className="text-xl font-bold tracking-tight">HPX Cam</span>
+                            <span className="text-xl font-bold tracking-tight">CameraCart</span>
                         </div>
                     </div>
                 </div>

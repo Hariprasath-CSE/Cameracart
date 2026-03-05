@@ -119,7 +119,7 @@ const Cart = () => {
                                     <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
                                 </svg>
                             </div>
-                            <span className="text-xl font-bold tracking-tight dark:text-white text-slate-900">HPX Cam</span>
+                            <span className="text-xl font-bold tracking-tight dark:text-white text-slate-900">CameraCart</span>
                         </div>
 
                         <div className="flex items-center gap-4 sm:gap-6 shrink-0">

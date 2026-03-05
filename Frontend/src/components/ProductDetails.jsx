@@ -81,7 +81,7 @@ const ProductDetails = () => {
         }
     };
 
-    const handleSubmitReview = async () => {
+    const handleSubmitReview = () => {
         if (!userRating) {
             toast.error('Please select a rating', {
                 style: {
@@ -105,45 +105,22 @@ const ProductDetails = () => {
         }
 
         setSubmittingReview(true);
-        try {
-            const response = await api.post(`/products/${id}/review`, {
-                rating: userRating,
-                comment: reviewText.trim()
-            });
 
-            if (response.data.success) {
-                toast.success('Thank you for your review!', {
-                    style: {
-                        background: '#122017',
-                        color: '#38e07b',
-                        border: '1px solid #1a2c22'
-                    }
-                });
-
-                // Update product state with fresh reviews + recalculated rating
-                setProduct((prev) => ({
-                    ...prev,
-                    reviews: response.data.data.reviews,
-                    rating: response.data.data.rating,
-                    reviewCount: response.data.data.reviewCount
-                }));
-
-                // Reset form
-                setUserRating(0);
-                setReviewText('');
-            }
-        } catch (error) {
-            const errMsg = error.response?.data?.message || 'Failed to submit review';
-            toast.error(errMsg, {
+        // Simulate review submission
+        setTimeout(() => {
+            toast.success('Thank you for your review!', {
                 style: {
                     background: '#122017',
-                    color: '#ff6b6b',
+                    color: '#38e07b',
                     border: '1px solid #1a2c22'
                 }
             });
-        } finally {
+
+            // Reset form
+            setUserRating(0);
+            setReviewText('');
             setSubmittingReview(false);
-        }
+        }, 1000);
     };
 
     if (loading) {
@@ -188,7 +165,7 @@ const ProductDetails = () => {
                                         <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
                                     </svg>
                                 </div>
-                                <span className="text-xl font-bold tracking-tight">HPX Cam</span>
+                                <span className="text-xl font-bold tracking-tight">CameraCart</span>
                             </div>
                         </div>
                         <button
@@ -234,8 +211,8 @@ const ProductDetails = () => {
                                             <span
                                                 key={i}
                                                 className={`material-symbols-outlined text-[20px] ${i < Math.floor(product.rating)
-                                                    ? 'text-amber-400 fill'
-                                                    : 'text-gray-300 dark:text-[#29382f]'
+                                                        ? 'text-amber-400 fill'
+                                                        : 'text-gray-300 dark:text-[#29382f]'
                                                     }`}
                                             >
                                                 star
@@ -340,8 +317,8 @@ const ProductDetails = () => {
                                     >
                                         <span
                                             className={`material-symbols-outlined text-4xl ${star <= (hoveredRating || userRating)
-                                                ? 'text-amber-400 fill'
-                                                : 'text-gray-300 dark:text-[#29382f]'
+                                                    ? 'text-amber-400 fill'
+                                                    : 'text-gray-300 dark:text-[#29382f]'
                                                 }`}
                                         >
                                             star
@@ -410,17 +387,15 @@ const ProductDetails = () => {
                                         <div className="flex-1">
                                             <div className="flex items-center justify-between mb-2">
                                                 <h4 className="font-bold dark:text-white">{review.userName}</h4>
-                                                <span className="text-sm text-text-secondary">
-                                                    {new Date(review.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-                                                </span>
+                                                <span className="text-sm text-text-secondary">{review.date}</span>
                                             </div>
                                             <div className="flex items-center gap-1 mb-3">
                                                 {[...Array(5)].map((_, i) => (
                                                     <span
                                                         key={i}
                                                         className={`material-symbols-outlined text-[16px] ${i < review.rating
-                                                            ? 'text-amber-400 fill'
-                                                            : 'text-gray-300 dark:text-[#29382f]'
+                                                                ? 'text-amber-400 fill'
+                                                                : 'text-gray-300 dark:text-[#29382f]'
                                                             }`}
                                                     >
                                                         star
