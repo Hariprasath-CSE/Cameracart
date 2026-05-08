@@ -17,15 +17,21 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://127.0.0.1:5173',
   'https://cameracart.vercel.app',
+  'https://cameracart-lvjhzb58r-hariprasaths-projects-fa26b109.vercel.app',
   ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : []),
 ];
 
 app.use(cors({
   origin: function (origin, callback) {
-    // allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
     
-    if (allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+    // Normalize: remove trailing slash and convert to lowercase
+    const normalizedOrigin = origin.replace(/\/$/, '').toLowerCase();
+    
+    const isAllowed = allowedOrigins.some(o => o.replace(/\/$/, '').toLowerCase() === normalizedOrigin);
+    const isVercel = normalizedOrigin.endsWith('.vercel.app');
+
+    if (isAllowed || isVercel) {
       callback(null, true);
     } else {
       console.log('CORS Blocked for origin:', origin);
